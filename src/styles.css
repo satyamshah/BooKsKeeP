@@ -1,0 +1,83 @@
+/*
+use variable in css color
+*/
+
+:root {
+  --offwhite: rgb(241, 241, 241);
+  --white: #ffffff;
+  --herocolor: rgb(170, 170, 170);
+  --bluetheme:#007bb5;
+}
+
+body {
+  font-size: 14px;
+  font-family: "Rubik", sans-serif;
+  z-index: -1;
+  background-color: #f8f8f8;
+}
+
+body::-webkit-scrollbar {
+  width:5px;
+}
+body {
+  scrollbar-width: thin;
+  scrollbar-color: var(--bluetheme) var(--offwhite);
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--offwhite);
+}
+body::-webkit-scrollbar-thumb {
+  background-color: var(--bluetheme) ;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+p {
+  font-size: 0.8rem;
+}
+
+@media (min-width: 768px) {
+  body {
+    font-size: 16px;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  body {
+    font-size: 18px;
+  }
+  
+  h1 {
+    font-size: 3rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  p {
+    font-size: 0.9rem;
+  }
+  label {
+    font-size: 16px;
+  }
+}

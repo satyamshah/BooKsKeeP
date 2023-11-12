@@ -1,0 +1,116 @@
+.header {
+    position: relative;
+    top: 6rem;
+    text-align: center;
+  }
+  
+  .checkoutcontainer {
+    position: relative;
+    top: 6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .addressbarcontainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .addressbar {
+    width: 21rem;
+    height: 9rem;
+    box-shadow: 0 5px 15px rgba(90, 90, 90, 0.35);
+    font-size: 0.8rem;
+  }
+  .internalcontainer {
+    margin: 0.5rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+  .internalcontainer p {
+    font-size: 0.8rem;
+  }
+  
+  .orderdetailsconatiner {
+    width: 21rem;
+    height: 32.5rem;
+    box-shadow: 0 5px 15px rgba(90, 90, 90, 0.35);
+  }
+  
+  .container {
+    margin: 2rem;
+  }
+  
+  .orderdetailsconatiner h3 {
+    text-align: center;
+    border-top: 1px solid lightgrey;
+    border-bottom: 1px solid lightgray;
+    padding: 0.5rem 0;
+  }
+  
+  .bookscontainer {
+    display: flex;
+    justify-content: space-between;
+  }
+  .dynamiccontainer{
+    display: flex;
+    flex-direction: column;
+  }
+  .dynamicrowcontainer{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+  }
+  
+  .address {
+    font-size: 0.8rem;
+    text-align: start;
+    margin-bottom: 0.8rem;
+  }
+  .address p {
+    font-size: 0.8rem;
+  }
+  button {
+    width: 100%;
+    height: 2rem;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: white;
+    background-color: var(--bluetheme);
+    border: none;
+  }
+  
+  @media (min-width: 724px) {
+    .orderdetailsconatiner {
+      width: 24rem;
+      height: 35rem;
+    }
+    .addressbar {
+      width: 24rem;
+      height: 9rem;
+      box-shadow: 0 5px 15px rgba(90, 90, 90, 0.35);
+      font-size: 0.8rem;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .orderdetailsconatiner {
+      width: 24rem;
+      height: 35rem;
+      font-size: 1rem;
+    }
+    .checkoutcontainer {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      gap: 5rem;
+    }
+    .addressbarcontainer {
+      gap: 2rem;
+      align-self: flex-start;
+    }
+  }
+  

@@ -1,0 +1,20 @@
+.footer{
+    position:relative;
+    top:6rem;
+    text-align: center;
+    box-shadow: 0.5px 0.5px 4px 4px var(--offwhite);
+}
+
+.footer h3{
+ font-size: 1.3rem;
+ font-weight: 600;
+}
+
+
+.footerlink{
+    display: flex;
+    justify-content: center;
+    font-size: 2rem;
+    gap:2.5rem;
+    
+}

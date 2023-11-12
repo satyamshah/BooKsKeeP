@@ -1,0 +1,125 @@
+
+.hero{
+  font-size: 1.6rem;
+}
+
+.navstyle {
+  display: flex;
+  flex-direction: column;
+  background-color: #007bb5;
+  color: white;
+  position: fixed;
+  z-index: 3;
+  top: 0px;
+  right: 0px;
+  left: 0px;
+  height: 6rem;
+}
+.opacity{
+  opacity:0.4;
+}
+
+.navheader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.navlink {
+  text-decoration: none;
+  color: white;
+  display: flex;
+  gap:0.5rem;
+}
+
+#isvisible {
+  display: none;
+}
+
+.links {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.searchbar {
+  padding: 0.3rem;
+  border-radius: 20px;
+  margin: 1rem;
+  width: 70%;
+  outline: none;
+  border-color: #007bb5;
+  border:none;
+}
+
+.formoblist {
+  display: flex;
+  flex-direction: row;
+}
+li {
+  list-style: none;
+}
+
+.searchbarinv {
+  display: none;
+}
+
+/* style for tablets */
+@media (min-width: 523px) {
+  body {
+    font-size: 16px;
+  }
+
+  #isvisible {
+    display: inline;
+  }
+
+  .container {
+    display: none;
+  }
+
+  .searchbarinv {
+    display: inline;
+    padding: 0.3rem;
+    border-radius: 20px;
+    width: 35%;
+    border:none;
+    outline: none;
+  }
+  .navstyle {
+    height: 4rem;
+  }
+}
+
+/* Styles for laptops and up */
+@media screen and (min-width: 1024px) {
+  .heros{
+    font-size: 1.6rem;
+  }
+  body {
+    font-size: 18px;
+  }
+  .hideburger{
+    display:none;
+  }
+  .searchbarinv {
+    display: inline;
+    padding: 0.3rem;
+    border-radius: 20px;
+    width: 20%;
+    border:none;
+    outline: none;
+  }
+
+  .navheader {
+    justify-content: space-around;
+  }
+}
