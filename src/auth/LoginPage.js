@@ -24,7 +24,7 @@ const LoginPage = () => {
     setloading(true);
     try {
       const res = await signIn(email.current.value, password.current.value);
-      let from = location.state?.from?.pathname || '/account'
+      let from = location.state?.from?.pathname || '/products'
       setloading(false);
       navigate(from)
     } catch (e) {
