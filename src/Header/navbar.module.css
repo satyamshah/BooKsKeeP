@@ -36,6 +36,18 @@
   gap:0.5rem;
 }
 
+.topnum{
+    font-size: .5rem;
+    font-weight: 600;
+    padding: 0.4rem;
+    height: 0.4rem;
+    margin-left: -1.2rem;
+    margin-top: -0.7rem;
+    /* border: 2px solid white; */
+    border-radius: 25px;
+    background-color: #0e9aeb;
+}
+
 #isvisible {
   display: none;
 }

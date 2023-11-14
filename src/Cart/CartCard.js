@@ -13,6 +13,8 @@ const CartCard=(props)=>{
       (currentlist[0].Price * 100) / (100 - currentlist[0].Discount)
     );
     
+console.log(state.wishlist)
+
 return(
 <section className={style.cartcard}>
 <div className={style.cardheader}>

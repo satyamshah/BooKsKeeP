@@ -41,7 +41,7 @@ function handleClick(){
     <>
       <Navbar opacity={isCouponClicked}/>
       {state.cart.length === 0 ? (
-          <h3 className={style.cartheader}>{loading?"loading.....":"No Item present in Cart"}</h3>
+          <h3 className={style.cartheader}>{loading?"loading.....":(state.cart.length===0)?"No Item present in Cart":""}</h3>
       ) : (
         <>
       <h3 className={style.cartheader}>Cart({state.cart.length})</h3>

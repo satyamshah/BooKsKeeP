@@ -9,6 +9,7 @@ import { ProductContext } from "../Context/ProductProvider";
 import { ACTION_TYPE } from "../Utils/Util";
 
 const LoginPage = () => {
+  const {getAlldetails}=ProductContext()
   const email = useRef();
   const password = useRef();
   const [loading, setloading] = useState(false);
@@ -25,6 +26,7 @@ const LoginPage = () => {
     try {
       const res = await signIn(email.current.value, password.current.value);
       let from = location.state?.from?.pathname || '/products'
+      getAlldetails()
       setloading(false);
       navigate(from)
     } catch (e) {
@@ -46,7 +48,8 @@ const LoginPage = () => {
     setloading(true);
     try {
       const res = await signIn("GuestUser@gmail.com", "TestUser@2023");
-      let from = location.state?.from?.pathname || '/account'
+      let from = location.state?.from?.pathname || '/products'
+      getAlldetails()
       setloading(false);
       navigate(from)
     } catch (e) {

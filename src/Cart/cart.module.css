@@ -1,5 +1,8 @@
 
-
+.applybutton:hover{
+    cursor: pointer;
+    outline:1.5px solid var(--bluetheme);
+}
 .opacity{
     opacity:0.4;
   }
@@ -146,6 +149,10 @@ font-weight: 550;
     cursor: pointer;
     box-shadow: rgba(90, 90, 90, 0.35) 0px 5px 15px;
     background-color: white;
+    cursor: unset;
+}
+.cartfooter h3,.buttoncontainerbutton,.checkoutbutton{
+cursor: pointer;
 }
 
 .cardheader{

@@ -34,7 +34,6 @@ function handleClick(e){
 
 
 useEffect(()=>{
-  
   if(!state.isstateloaded){
     setloading(true)
     getAlldetails()
@@ -117,9 +116,11 @@ filtereddata=filtereddata.filter((item)=>{
           </Link>
           <Link to="/wishlist" className={styles.navlink}>
             <span className="material-symbols-outlined">favorite</span>
+            {state.wishlist.length!==0?<span className={styles.topnum}>{state.wishlist.length}</span>:""} 
           </Link>
           <Link to="/cart" className={styles.navlink}>
             <span className="material-symbols-outlined">shopping_cart</span>
+            {state.cart.length!==0?<span className={styles.topnum}>{state.cart.length}</span>:""} 
           </Link>
           {user? <Link to="/account" className={styles.navlink}>
             <span className="material-symbols-outlined">login</span>

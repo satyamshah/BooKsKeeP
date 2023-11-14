@@ -4,11 +4,13 @@ import { doc, setDoc } from "firebase/firestore";
 
 import { Navbar } from "../Header/Navbar";
 import { AuthContext } from "../Context/AuthProvider";
+import { ProductContext } from "../Context/ProductProvider";
 import {db} from "../Firebase";
 import {LoaderComp} from "../loader/loader"
 import style from "./loginpage.module.css";
 
 const RegisterPage = () => {
+  const {getAlldetails}=ProductContext()
   const firstname = useRef();
   const lastname = useRef();
   const email = useRef();
@@ -41,6 +43,7 @@ const RegisterPage = () => {
         country:"",
         phoneNumber:""
       });
+      getAlldetails()
       setloading(false);
       navigate("/products");
     } catch (e) {

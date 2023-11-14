@@ -45,7 +45,7 @@ return(
     <section className={style.summarycart}>
      <header className={style.summaryheader}>
        <p><span>&#9751;</span>Have a Coupon ?</p> 
-       <span onClick={()=>props.setCouponClicked(true)}>Apply</span>
+       <span className={style.applybutton} onClick={()=>props.setCouponClicked(true)}>Apply</span>
      </header>
      <p>PRICE DETAILS</p>
      <div className={`${style.summarycostdiv} ${style.topborder}`}>

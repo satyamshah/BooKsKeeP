@@ -9,7 +9,7 @@ import { ACTION_TYPE } from "../Utils/Util";
 
 const Navbar = (props) => {
   const [input,setinput]=useState("")
-  const {dispatch} = ProductContext();
+  const {dispatch,state} = ProductContext();
   const {user}=AuthContext()
   const navigate=useNavigate()
 
@@ -59,9 +59,11 @@ function handleClick(e){
           </Link>
           <Link to="/wishlist" className={style.navlink}>
             <span className="material-symbols-outlined">favorite</span>
+           {state.wishlist.length!==0?<span className={style.topnum}>{state.wishlist.length}</span>:""} 
           </Link>
           <Link to="/cart" className={style.navlink}>
             <span className="material-symbols-outlined">shopping_cart</span>
+            {state.cart.length!==0?<span className={style.topnum}>{state.cart.length}</span>:""} 
           </Link>
           {user? <Link to="/account" className={style.navlink}>
             <span className="material-symbols-outlined">login</span>

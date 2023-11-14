@@ -1,20 +1,37 @@
-import {Navigate, useParams} from 'react-router-dom'
 
+import {useState,useEffect} from 'react';
+import {Navigate, useParams,Link} from 'react-router-dom'
+import { ACTION_TYPE } from "../Utils/Util"
 import {Navbar} from "../Header/Navbar"
-import {ProductContext} from "../Context/ProductProvider"
+import {ProductContext} from '../Context/ProductProvider'
+import { AuthContext } from "../Context/AuthProvider";
 import style from "./product.module.css"
 
 
 const ProductDetails=()=>{
     const {id} = useParams()
-    const {state}=ProductContext()
+    const {user}=AuthContext()
+    const [loading,setloading]=useState(false)
+    const {getAlldetails,state,dispatch}=ProductContext()
 const product=state.productdetails.filter((item)=>item.id===id)
+
+useEffect(()=>{
+    if(!state.isstateloaded){
+      setloading(true)
+      getAlldetails()
+      setTimeout(()=>
+      {
+          setloading(false)
+      }
+      ,2000)
+    }
+  },[user])
 
 return(
     <>
     <Navbar/>
     {product.length===0?<div>
-        <h1 style={{position:"relative" , top:"6rem"}}>Product Not found</h1>
+        <h3 style={{position:"relative" , top:"6rem"}}>{loading?"loading.....":"Product Not found"}</h3>
     </div>:
     <div className={style.productdetailscontainer} >
         <section className={style.productdetailssection}>
@@ -45,12 +62,20 @@ return(
              <p><span>Binding :</span> Hard Cover</p>   
              <p><span>Language :</span> English</p>   
             </div>
-            <button className={style.detailscartbutton}>Add to Cart</button>
-            <button className={style.detailswishlistbutton}>Add to Wishlist</button>
+            
+            {!state.cart.reduce((accm,curr)=>{
+if(curr.cartid===id)
+{
+  accm=true
+}
+return accm 
+  },false)?(<button className={style.detailscartbutton} onClick={()=>dispatch(({type:ACTION_TYPE.ADD_TO_CART,payload:{value:id}}))}>Add to Cart</button>):(<Link to="/cart"><button className={style.detailscartbutton}>Go to Cart</button></Link>)} 
+            {/* <button className={style.detailswishlistbutton}>Add to Wishlist</button> */}
+            {(state.wishlist.indexOf(id)===-1)?<button onClick={()=>dispatch(({type:ACTION_TYPE.ADD_TO_WISHLIST,payload:{value:id}}))} className={style.detailswishlistbutton}>Add to Wishlist</button>:(<Link to="/wishlist"><button className={style.detailswishlistbutton}>Go to Wishlist</button></Link>)}
         </div>
         </section>  
     </div>
-}
+} 
     </>
 )
 }

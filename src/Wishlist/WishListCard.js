@@ -5,6 +5,7 @@ import { ProductContext } from "../Context/ProductProvider"
 import { ACTION_TYPE } from "../Utils/Util"
 
 const WishListCard = (props) => {
+
     const{state,dispatch}=ProductContext()
   const currentlist = props.details.filter(
     (item) => item.id === props.wishlistid
@@ -12,7 +13,7 @@ const WishListCard = (props) => {
   const originalprice = Math.round(
     (currentlist[0].Price * 100) / (100 - currentlist[0].Discount)
   );
-  
+ 
   return (
     <section className={style.wishlistcard}>
       <div className={style.wishlistheader}>
@@ -29,7 +30,13 @@ const WishListCard = (props) => {
               ({currentlist[0].Discount}%off)
             </span>
           </div>
-         {state.cart.indexOf(props.wishlistid)===-1?(<button className={style.addcart} onClick={()=>dispatch(({type:ACTION_TYPE.ADD_TO_CART,payload:{value:props.wishlistid}}))}>Add to Cart</button>):(<Link to="/cart"><button className={style.addcart}>Move to Cart</button></Link>)} 
+         {!state.cart.reduce((accm,curr)=>{
+if(curr.cartid===props.wishlistid)
+{
+  accm=true
+}
+return accm 
+  },false)?(<button className={style.addcart} onClick={()=>dispatch(({type:ACTION_TYPE.ADD_TO_CART,payload:{value:props.wishlistid}}))}>Add to Cart</button>):(<Link to="/cart"><button className={style.addcart}>Go to Cart</button></Link>)} 
           <button className={style.removewishlist} onClick={()=>dispatch({type:ACTION_TYPE.REMOVE_FROM_WISHLIST,payload:{value:props.wishlistid}})}>Remove from Wishlist</button>
         </div>
       </div>

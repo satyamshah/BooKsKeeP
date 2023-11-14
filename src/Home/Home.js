@@ -1,35 +1,23 @@
 import {Link,useNavigate} from 'react-router-dom'
+import { useEffect } from 'react';
 
 import {Footer, footer} from '../Footer/Footer'
 import { Navbar } from "../Header/Navbar";
 import { HomeCard } from "../Cards/Card";
 import style from "../Home/home.module.css";
 import { ProductContext } from "../Context/ProductProvider"
-import {ACTION_TYPE} from "../Utils/Util"
+import { AuthContext } from "../Context/AuthProvider";
+
 
 const Home = () => {
-  const {dispatch,state}=ProductContext()
+  const {getAlldetails,state}=ProductContext()
   const navigate=useNavigate()
-
-function handlenavigate(key){
-  console.log("inside handle navigate")
-  // switch(key)
-  // {
-  //   case '1':
-  //     dispatch({type:ACTION_TYPE.APPLY_CATEGORY_FILTER ,payload:{ischecked:true,value:'Fiction'}})
-  //     navigate("/products")
-  //     break;
-  //   case '2':
-  //     dispatch({type:ACTION_TYPE.APPLY_CATEGORY_FILTER ,payload:{ischecked:true,value:'nonfiction'}})
-  //     navigate("/products")
-  //     break;
-  //   case '3':
-  //     dispatch({type:ACTION_TYPE.APPLY_CATEGORY_FILTER ,payload:{ischecked:true,value:'selfhelp'}})
-  //     navigate("/products")
-  //     break;
-  // }
-
-}
+  const {user}=AuthContext()
+  useEffect(()=>{
+    if(!state.isstateloaded){
+      getAlldetails()
+    }
+  },[user])
 
   const container = [
     {
@@ -60,7 +48,7 @@ function handlenavigate(key){
       <Navbar />
       <section className={style.homepage}>
         <div className={style.imagecontainer}>
-          <Link to="/products"><img className={style.img} src="./Images/frontwall.svg" /></Link>
+          <Link to="/products"><img  className={style.img} src="./Images/frontwall.svg" /></Link>
         </div>
         <div className={style.imagecontainer}>
           <img className={style.middleimg} src="./Images/image2.jpg" />

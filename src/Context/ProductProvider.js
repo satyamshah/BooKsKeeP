@@ -158,29 +158,29 @@ function reducer(state, action) {
         addtoCartorWish('cart',user?.uid,action.payload.value)
 
         //logic for checking and updating in state
-        if(state.cart.indexOf(action.payload.value)===-1)
+        if(user?.uid)
         {
-            const newcart=[...state.cart]
-            newcart.push({cartid:action.payload.value,count:1})
-            return{...state,cart:newcart}
+          if(state.cart.indexOf(action.payload.value)===-1)
+          {
+              const newcart=[...state.cart]
+              newcart.push({cartid:action.payload.value,count:1})
+              return{...state,cart:newcart}
+          }
         }
-        else{
             return{...state}
-        }
-        
        }
        case ACTION_TYPE.ADD_TO_WISHLIST:{
         // Add logic to check is user is signed IN
         addtoCartorWish('wishlist',user?.uid,action.payload.value)
-        if(state.wishlist.indexOf(action.payload.value)===-1)
-        {
-            const newwish=[...state.wishlist]
-            newwish.push(action.payload.value)
-            return{...state,wishlist:newwish}
+        if(user?.uid){
+          if(state.wishlist.indexOf(action.payload.value)===-1)
+          {
+              const newwish=[...state.wishlist]
+              newwish.push(action.payload.value)
+              return{...state,wishlist:newwish}
+          }
         }
-        else{
             return{...state}
-        }
        }
 
        case ACTION_TYPE.REMOVE_FROM_WISHLIST:{

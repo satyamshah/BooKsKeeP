@@ -1,5 +1,5 @@
 .loader{
-    position: fixed;
+  position: fixed;
   top: 50%;
   left:50%;
   transform: translate(-50%,50%);
@@ -84,6 +84,7 @@ margin-top: 0.4rem;
     outline: none;
     border-radius: 5px;
     padding: 0.3rem;
+    cursor: pointer;
 }
 .detailswishlistbutton
 {
@@ -103,7 +104,16 @@ margin-top: 0.4rem;
 }
 .clear{
     text-decoration: underline;
+    cursor: pointer;
 }
+
+.clear:hover{
+    color: var(--bluetheme)
+}
+.filtersection input{
+    cursor: pointer;
+}
+
 .slider{
     display: flex;
     flex-direction: column;
@@ -193,6 +203,7 @@ transition: all 0.1s ease-out;
 .booknamecontainer{
     display:flex;
     justify-content: space-between;
+    text-decoration: none;
 }
 .bookname{
     inline-size: 6.5rem;
@@ -252,6 +263,7 @@ width:8.6rem;
 height:1.6rem;
 border:none;
 outline:none;
+cursor: pointer;
 }
 .wishlistbutton{
 background-color: white;
