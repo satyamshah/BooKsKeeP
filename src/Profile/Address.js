@@ -17,7 +17,7 @@ const [formdata,setFormdata]=useState({
     states:state.address.state,
     pin:state.address.pin,
     country:state.address.country,
-    number:state.address.phoneNumber
+    number:state.address.number
 })
 
 
