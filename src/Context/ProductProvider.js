@@ -29,7 +29,7 @@ const ProductProvider=({children})=>{
           state:"",
           pin:"",
           country:"",
-          phoneNumber:""
+          number:""
       },
       user:{
         email:"",
@@ -115,7 +115,7 @@ function reducer(state, action) {
           state:state.address.state,
           pin:state.address.pin,
           country:state.address.country,
-          phoneNumber:state.address.phoneNumber
+          number:state.address.number
       },
       user:{
         email:state.user.email,
@@ -143,7 +143,7 @@ function reducer(state, action) {
             state:"",
             pin:"",
             country:"",
-            phoneNumber:""
+            number:""
         },
         user:{
           email:"",
@@ -239,7 +239,6 @@ function reducer(state, action) {
        }
        case ACTION_TYPE.SAVE_ADDRESS:{
         //update db
-        console.log(action.payload)
         updateaddress(action.payload,user.uid)
         //update state
         return {...state,address:action.payload}
@@ -256,7 +255,7 @@ async function updateaddress(payload,id){
   await updateDoc(usersRef, {
     city: payload.city,
     country:payload.country,
-    phoneNumber:payload.number,
+    number:payload.number,
     pin:payload.pin,
     property: payload.property,
     state:payload.state
@@ -407,7 +406,7 @@ const getAlldetails=async()=>{
              newstate.address.state=docSnap.data().state
              newstate.address.pin=docSnap.data().pin
              newstate.address.country=docSnap.data().country
-             newstate.address.phoneNumber=docSnap.data().phoneNumber
+             newstate.address.number=docSnap.data().number
              newstate.user.email=docSnap.data().email
              newstate.user.firstname=docSnap.data().firstName
              newstate.user.lastname=docSnap.data().lastName

@@ -41,7 +41,7 @@ const RegisterPage = () => {
         state:"",
         pin:"",
         country:"",
-        phoneNumber:""
+        number:""
       });
       getAlldetails()
       setloading(false);
