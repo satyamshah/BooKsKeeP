@@ -9,6 +9,7 @@ const Addressbar = () => {
 
   const {dispatch,state}=ProductContext()
   const location=useLocation()
+  console.log(state)
   return (
     <section className={style.addressbar}>
       <div className={style.internalcontainer}>

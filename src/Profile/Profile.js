@@ -18,6 +18,7 @@ const Profile=()=>{
     const [loading, setloading] = useState(false);
     const navigate=useNavigate()
     
+    console.log(state)
 
       useEffect(()=>{
         if(!state.isstateloaded){
