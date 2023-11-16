@@ -52,7 +52,9 @@ function reducer(state, action) {
         return {...state,priceRange:action.payload}
        }
        case ACTION_TYPE.APPLY_CATEGORY_FILTER:{
-       
+       console.log(action.payload.ischecked)
+       console.log(action.payload.value)
+       console.log(action.payload.clearall)
         if(action.payload.ischecked){
             if(state.category.includes(action.payload.value)!==true)
             {

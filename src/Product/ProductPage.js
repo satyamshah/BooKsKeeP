@@ -60,11 +60,15 @@ if(state?.category.length!==0 && state?.category.length!==3)
     return state.category.includes(item.Category)
   })
 }
+console.log(filtereddata)
+console.log(state.category)
+console.log(state)
 if(state?.Rating?.length!==0){
   filtereddata=filtereddata?.filter((item)=>{
     return item.Rating>=state.Rating
   })
 }
+console.log(filtereddata)
 if(state?.sortBy!=="")
 {
   if(state?.sortBy==='asc')
@@ -76,7 +80,7 @@ if(state?.sortBy!=="")
     filtereddata?.sort((a,b)=>b.Price-a.Price)
   }
 }
-
+console.log(filtereddata)
 
 //search logic 
 filtereddata=filtereddata.filter((item)=>{
