@@ -23,7 +23,8 @@ const [formdata,setFormdata]=useState({
 
 const navigate = useNavigate();
 const location=useLocation()
-
+console.log(formdata)
+console.log(state)
 
 function handlesave(e){
     e.preventDefault()
