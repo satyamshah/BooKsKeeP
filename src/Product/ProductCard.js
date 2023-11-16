@@ -21,17 +21,17 @@ const ProductCard=(props)=>{
        <section className={style.detailssection}>
        <Link style={{textDecoration: 'none'}} to={`/products/${props.details.id}`}>
         <div  className={style.booknamecontainer}>
-            <span style={{textDecoration: 'none'}} className={style.bookname}>{props?.details.name}</span>
-            <button style={{textDecoration: 'none'}} className={style.starbutton}>{props?.details.Rating} <span>&#9733;</span> </button>
+            <span  className={style.bookname}>{props?.details.name}</span>
+            <button className={style.starbutton}>{props?.details.Rating} <span>&#9733;</span> </button>
             
         </div>
         <div >
-            <p style={{textDecoration: 'none'}} className={style.author}>{props?.details.Author}</p>
+            <p className={style.author}>{props?.details.Author}</p>
         </div>
         <div className={style.pricecontainer}>
-            <span style={{textDecoration: 'none'}}  className={style.price}>{props?.details.Price}</span>
-            <span style={{textDecoration: 'none'}}  className={style.orginalprice}>{originalprice}</span>
-            <span style={{textDecoration: 'none'}}  className={style.discount}>({props?.details.Discount}%off)</span>
+            <span  className={style.price}>{props?.details.Price}</span>
+            <span  className={style.orginalprice}>{originalprice}</span>
+            <span  className={style.discount}>({props?.details.Discount}%off)</span>
         </div>
         </Link>
         <div className={style.cartbuttoncontainer}>
