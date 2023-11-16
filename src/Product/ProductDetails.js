@@ -1,6 +1,6 @@
 
 import {useState,useEffect} from 'react';
-import {Navigate, useParams,Link} from 'react-router-dom'
+import {useNavigate, useParams,Link} from 'react-router-dom'
 import { ACTION_TYPE } from "../Utils/Util"
 import {Navbar} from "../Header/Navbar"
 import {ProductContext} from '../Context/ProductProvider'
@@ -13,7 +13,27 @@ const ProductDetails=()=>{
     const {user}=AuthContext()
     const [loading,setloading]=useState(false)
     const {getAlldetails,state,dispatch}=ProductContext()
+    const navigate=useNavigate()
 const product=state.productdetails.filter((item)=>item.id===id)
+
+function cartaddclick(){
+    if(user){
+        dispatch(({type:ACTION_TYPE.ADD_TO_CART,payload:{value:id}}))
+    }
+    else{
+     navigate('/login')
+    }
+}
+
+function wishlistaddclick(){
+    if(user){
+        dispatch(({type:ACTION_TYPE.ADD_TO_WISHLIST,payload:{value:id}}))
+    }
+    else{
+        navigate('/login')
+    }
+    
+}
 
 useEffect(()=>{
     if(!state.isstateloaded){
@@ -69,9 +89,8 @@ if(curr.cartid===id)
   accm=true
 }
 return accm 
-  },false)?(<button className={style.detailscartbutton} onClick={()=>dispatch(({type:ACTION_TYPE.ADD_TO_CART,payload:{value:id}}))}>Add to Cart</button>):(<Link to="/cart"><button className={style.detailscartbutton}>Go to Cart</button></Link>)} 
-            {/* <button className={style.detailswishlistbutton}>Add to Wishlist</button> */}
-            {(state.wishlist.indexOf(id)===-1)?<button onClick={()=>dispatch(({type:ACTION_TYPE.ADD_TO_WISHLIST,payload:{value:id}}))} className={style.detailswishlistbutton}>Add to Wishlist</button>:(<Link to="/wishlist"><button className={style.detailswishlistbutton}>Go to Wishlist</button></Link>)}
+  },false)?(<button className={style.detailscartbutton} onClick={cartaddclick}>Add to Cart</button>):(<Link to="/cart"><button className={style.detailscartbutton}>Go to Cart</button></Link>)} 
+        {(state.wishlist.indexOf(id)===-1)?<button onClick={wishlistaddclick} className={style.detailswishlistbutton}>Add to Wishlist</button>:(<Link to="/wishlist"><button className={style.detailswishlistbutton}>Go to Wishlist</button></Link>)}
         </div>
         </section>  
     </div>
