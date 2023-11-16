@@ -58,7 +58,9 @@ function reducer(state, action) {
         if(action.payload.ischecked){
             if(state.category.includes(action.payload.value)!==true)
             {
-                return{...state,category:[state.category.push(action.payload.value)]}
+              const categoryarr=state.category
+              categoryarr.push(action.payload.value)
+                return{...state,category:categoryarr}
             }
             else{
                 return {...state}
