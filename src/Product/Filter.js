@@ -8,6 +8,8 @@ const Filter=(props)=>{
 
     const {dispatch,state}=ProductContext()
 
+    // since we have controlled input, we need state variable for checked value
+
 
     return(<section className={props.filter?`${Style.filtersection}`:`${Style.filtersection} ${Style.nodisplay}`}>
     <header className={Style.filterheader}>
@@ -26,40 +28,40 @@ const Filter=(props)=>{
     </div>
     <div className={Style.category}>
         <h3>Category</h3>
-        <div> <input type="checkbox" id="fiction" defaultChecked={state.category.includes('Fiction')?true:false} onClick={(e)=>dispatch({type:ACTION_TYPE.APPLY_CATEGORY_FILTER ,payload:{ischecked:e.target.checked,value:'Fiction'}})}></input>
+        <div> <input type="checkbox" id="fiction" checked={state.category.includes('Fiction')?true:false} onClick={(e)=>dispatch({type:ACTION_TYPE.APPLY_CATEGORY_FILTER ,payload:{ischecked:e.target.checked,value:'Fiction'}})}></input>
         <label htmlFor="fiction">Fiction</label></div>
-       <div><input type="checkbox" id="nonfiction" defaultChecked={state.category.includes('nonfiction')?true:false} onClick={(e)=>dispatch({type:ACTION_TYPE.APPLY_CATEGORY_FILTER ,payload:{ischecked:e.target.checked,value:'nonfiction'}})}></input>
+       <div><input type="checkbox" id="nonfiction" checked={state.category.includes('nonfiction')?true:false} onClick={(e)=>dispatch({type:ACTION_TYPE.APPLY_CATEGORY_FILTER ,payload:{ischecked:e.target.checked,value:'nonfiction'}})}></input>
         <label htmlFor="nonfiction">Non Fiction</label></div>
-        <div><input type="checkbox" id="SelfHelp" defaultChecked={state.category.includes('selfhelp')?true:false} onClick={(e)=>dispatch({type:ACTION_TYPE.APPLY_CATEGORY_FILTER ,payload:{ischecked:e.target.checked,value:'selfhelp'}})}></input>
+        <div><input type="checkbox" id="SelfHelp" checked={state.category.includes('selfhelp')?true:false} onClick={(e)=>dispatch({type:ACTION_TYPE.APPLY_CATEGORY_FILTER ,payload:{ischecked:e.target.checked,value:'selfhelp'}})}></input>
         <label htmlFor="SelfHelp">Self Help</label></div>    
     </div>
     <div className={Style.rating}>
         <h3>Rating</h3>
         <div>
-            <input type="radio" name="rating" id="1star" defaultChecked={state.Rating.includes('1')?true:false} onClick={(e)=>dispatch({type:ACTION_TYPE.APPLY_RATING_FILTER,payload:{value:'1'}})}></input>
+            <input type="radio" name="rating" id="1star" checked={state.Rating.includes('1')?true:false} onClick={(e)=>dispatch({type:ACTION_TYPE.APPLY_RATING_FILTER,payload:{value:'1'}})}></input>
             <label htmlFor="1star">1 star & above</label>
         </div>
         <div>
-            <input type="radio" name="rating" id="2star" defaultChecked={state.Rating.includes('2')?true:false} onClick={(e)=>dispatch({type:ACTION_TYPE.APPLY_RATING_FILTER,payload:{value:'2'}})}></input>
+            <input type="radio" name="rating" id="2star" checked={state.Rating.includes('2')?true:false} onClick={(e)=>dispatch({type:ACTION_TYPE.APPLY_RATING_FILTER,payload:{value:'2'}})}></input>
             <label htmlFor="2star">2 star & above</label>
         </div>
         <div>
-            <input type="radio" name="rating" id="3star" defaultChecked={state.Rating.includes('3')?true:false} onClick={(e)=>dispatch({type:ACTION_TYPE.APPLY_RATING_FILTER,payload:{value:'3'}})}></input>
+            <input type="radio" name="rating" id="3star" checked={state.Rating.includes('3')?true:false} onClick={(e)=>dispatch({type:ACTION_TYPE.APPLY_RATING_FILTER,payload:{value:'3'}})}></input>
             <label htmlFor="3star">3 star & above</label>
         </div>
         <div>
-            <input type="radio" name="rating" id="4star" defaultChecked={state.Rating.includes('4')?true:false} onClick={(e)=>dispatch({type:ACTION_TYPE.APPLY_RATING_FILTER,payload:{value:'4'}})}></input>
+            <input type="radio" name="rating" id="4star" checked={state.Rating.includes('4')?true:false} onClick={(e)=>dispatch({type:ACTION_TYPE.APPLY_RATING_FILTER,payload:{value:'4'}})}></input>
             <label htmlFor="4star">4 star & above</label>
         </div>
     </div>
     <div className={Style.sort}>
         <h3>Sort by</h3>
         <div>
-            <input type="radio" name="sort" id="low" defaultChecked={state.sortBy==='asc'?true:false} onClick={(e)=>dispatch({type:ACTION_TYPE.SORT,payload:'asc'})}></input>
+            <input type="radio" name="sort" id="low" checked={state.sortBy==='asc'?true:false} onClick={(e)=>dispatch({type:ACTION_TYPE.SORT,payload:'asc'})}></input>
             <label htmlFor="lowr">Price - Low to High</label>
         </div>
         <div>
-            <input type="radio" name="sort" id="high" defaultChecked={state.sortBy==='desc'?true:false} onClick={(e)=>dispatch({type:ACTION_TYPE.SORT,payload:'desc'})}></input>
+            <input type="radio" name="sort" id="high" checked={state.sortBy==='desc'?true:false} onClick={(e)=>dispatch({type:ACTION_TYPE.SORT,payload:'desc'})}></input>
             <label htmlFor="high">Price - High to Low</label>
         </div>
     </div>
