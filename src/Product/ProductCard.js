@@ -20,15 +20,15 @@ const ProductCard=(props)=>{
             </Link>
        <section className={style.detailssection}>
        <Link to={`/products/${props.details.id}`}>
-        <div className={style.booknamecontainer}>
+        <div style={{textDecoration: 'none'}} className={style.booknamecontainer}>
             <span className={style.bookname}>{props?.details.name}</span>
             <button className={style.starbutton}>{props?.details.Rating} <span>&#9733;</span> </button>
             
         </div>
         <div >
-            <p className={style.author}>{props?.details.Author}</p>
+            <p style={{textDecoration: 'none'}} className={style.author}>{props?.details.Author}</p>
         </div>
-        <div className={style.pricecontainer}>
+        <div style={{textDecoration: 'none'}} className={style.pricecontainer}>
             <span className={style.price}>{props?.details.Price}</span>
             <span className={style.orginalprice}>{originalprice}</span>
             <span className={style.discount}>({props?.details.Discount}%off)</span>
