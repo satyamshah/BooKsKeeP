@@ -105,7 +105,7 @@ const totalamount=totalpriceobj.originalsum-totaldiscount-coupondiscountamt
                 <span>{", "}{state.address.country}</span>
                 <span>{", "}Phone Number :{state.address.number}</span>
         </div>
-        <button>Place Order</button>
+        <button onClick={()=>alert("Payment Integration feature not released yet")}>Place Order</button>
       </div>
     </section>
   );
